@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupsTable extends Migration
+class CreateCreditsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,22 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
-            $table->string('payment_frequency');
-            $table->timestamp('finished_date');
-            $table->integer('duration');
-            $table->decimal('amount');
-            $table->integer('credit_id');
+            $table->integer('user_id');
+            $table->integer('group_id');
+            $table->timestamp('start_date');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('credit_id')
+            $table->foreign('user_id')
                   ->references('id')
-                  ->on('credits')
+                  ->on('users')
+                  ->onDelete('cascade');
+
+            $table->foreign('group_id')
+                  ->references('id')
+                  ->on('groups')
                   ->onDelete('cascade');
         });
     }
@@ -38,6 +40,6 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('credits');
     }
 }

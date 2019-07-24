@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCreditsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateCreditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('credits', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('description');
+            $table->enum('payment_frequency', ['DAILY', 'WEEKLY', 'BIWEEKLY', 'MONTHLY', 'ANNUAL']);
+            $table->timestamp('finished_date');
+            $table->integer('duration');
+            $table->bigInteger('amount');
             $table->decimal('interest_rate');
-            $table->integer('user_id');
-            $table->integer('start_date');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
         });
     }
 
@@ -35,6 +33,6 @@ class CreateCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credits');
+        Schema::dropIfExists('groups');
     }
 }

@@ -20,7 +20,7 @@ class CreateUsersInfoTable extends Migration
             $table->string('second_surname');
             $table->string('id');
             $table->string('phone');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
             $table->timestamps();
             $table->softDeletes();
 
