@@ -16,13 +16,15 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    Caja de Ahorro
-                </div>
-
-                <div class="links">
-                    <a href="{{ route('register') }}">!Únete ahora!</a>
-					<a href="{{ route('login') }}">Ya tengo una cuenta</a>
+                <div class="image">
+                    <img src="{{ asset('images/cash.png') }}" alt="">
+                </div>
+                <div class="options">
+                    <h1>Caja de Ahorro</h1>
+                    <div class="buttons m-4">
+                        <a href="{{ route('register') }}" class="m-2 btn btn-red btn-lg" role="button" aria-disabled="true">Solicita prestamo</a>
+                        <a href="{{ route('login') }}" class="m-2 btn btn-blue btn-lg" role="button" aria-disabled="true">Iniciar sesión</a>
+                    </div>
                 </div>
             </div>
         </div>

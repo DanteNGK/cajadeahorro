@@ -49507,8 +49507,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/dantebravo/Code/cajadeahorro/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/dantebravo/Code/cajadeahorro/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/jacobguzmanacosta/Code/cajadeahorro/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/jacobguzmanacosta/Code/cajadeahorro/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
