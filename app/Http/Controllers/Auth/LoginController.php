@@ -21,6 +21,16 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function showLoginForm()
+    {
+        return view('auth.login', ['layout' => 'login']);
+    }
+
+    /**
      * Where to redirect users after login.
      *
      * @var string
