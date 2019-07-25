@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="register-container p-3">
-        @if(empty($user))
+        @if(empty($user->info->first_name && $user->info->first_surname && $user->info->second_surname && $user->info->id))
             <div class="text-center p-4 mb-4">
                 <h1>Mi perfil</h1>
             </div>
@@ -13,36 +13,36 @@
                         <fieldset class="scheduler-border">
                             <legend class="scheduler-border">Información personal</legend>
                             <div class="form-group">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                       placeholder="Nombre:" autofocus value="{{ Auth::user()->name }}"> @error('name')
+                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                       placeholder="Nombre:" autofocus value="{{ Auth::user()->name }}"> @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                           </span> @enderror
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="last_name"
-                                       placeholder="Apellido:"> @error('name')
+                                <input type="text" class="form-control @error('first_surname') is-invalid @enderror" name="first_surname"
+                                       placeholder="Apellido:"> @error('first_surname')
                                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                           </span> @enderror
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control @error('last_name') is-invalid @enderror"
-                                       name="middle_name" placeholder="Apellido Materno:"> @error('name')
+                                <input type="text" class="form-control @error('second_surname') is-invalid @enderror"
+                                       name="second_surname" placeholder="Apellido Materno:"> @error('second_surname')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control @error('id') is-invalid @enderror" name="id"
-                                       placeholder="Clave de elector:"> @error('name')
+                                       placeholder="Clave de elector:"> @error('id')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                               </span> @enderror
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control @error('cellphone') is-invalid @enderror"
-                                       name="cellphone" placeholder="Telefono:"> @error('name')
+                                <input type="text" class="form-control @error('phone') is-invalid @enderror"
+                                       name="phone" placeholder="Telefono:"> @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
@@ -66,8 +66,8 @@
                           </span> @enderror
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control @error('postal_code') is-invalid @enderror"
-                                       name="postal_code" placeholder="C.P:"> @error('name')
+                                <input type="text" class="form-control @error('postcode') is-invalid @enderror"
+                                       name="postcode" placeholder="C.P:"> @error('name')
                                 <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                           </span> @enderror
@@ -86,26 +86,26 @@
             </div>
         @else
             <div class="container justify-content-center w-50">
-                <form method="post" action="{{ route('user.update') }}">
+                <form method="PUT" action="{{ route('user.update') }}">
                     @csrf
                     <div class="card-profile-info">
                         <h1 class="text-center p-4">Datos de usuario</h1>
                         <ul class="list-unstyled">
-                            <li><span class="label">Nombre:</span> <span
-                                    class="font-weight-bold">{{ $user->name . " " . $user->last_name . " " . $user->middle_name }}</span>
+                            <li><span class="label mr-3">Nombre:</span> <span
+                                    class="font-weight-bold">{{ $user->info->first_name . " " . $user->info->first_surname . " " . $user->info->second_surname }}</span>
                             </li>
-                            <li><span class="label">Dirección:</span> <span
-                                    class="font-weight-bold">{{ $user->street }}</span></li>
-                            <li><span class="label">Colonia:</span> <span
-                                    class="font-weight-bold">{{ $user->neighborhood }}</span></li>
-                            <li><span class="label">C.P:</span> <span
-                                    class="font-weight-bold">{{ $user->postal_code }}</span></li>
-                            <li><span class="label">Municipio:</span> <span
-                                    class="font-weight-bold">{{ $user->municipality }}</span></li>
-                            <li><span class="label">Clave de elector:</span> <span
-                                    class="font-weight-bold">{{ $user->id }}</span></li>
-                            <li><span class="label">Teléfono:</span> <span
-                                    class="font-weight-bold">{{ $user->cellphone }}</span></li>
+                            <li><span class="label mr-3">Clave de elector:</span> <span
+                                    class="font-weight-bold">{{ $user->info->id }}</span></li>
+                            <li><span class="label mr-3">Teléfono:</span> <span
+                                    class="font-weight-bold">{{ $user->info->phone }}</span></li>
+                            <li><span class="label  mr-3">Dirección:</span> <span
+                                    class="font-weight-bold">{{ $user->address->street }}</span></li>
+                            <li><span class="label mr-3">Colonia:</span> <span
+                                    class="font-weight-bold">{{ $user->address->neighborhood }}</span></li>
+                            <li><span class="label mr-3">C.P:</span> <span
+                                    class="font-weight-bold">{{ $user->address->postcode }}</span></li>
+                            <li><span class="label mr-3">Municipio:</span> <span
+                                    class="font-weight-bold">{{ $user->address->municipality }}</span></li>
                         </ul>
                         <div class="p-3">
                             <button type="submit" class="btn btn-blue btn-lg btn-block">Editar</button>

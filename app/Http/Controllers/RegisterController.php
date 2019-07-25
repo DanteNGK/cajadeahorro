@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
+use function Sodium\crypto_pwhash_scryptsalsa208sha256;
 
 class RegisterController extends Controller
 {
@@ -14,21 +16,23 @@ class RegisterController extends Controller
 
 	public function store(Request $request)
 	{
-		$user = auth()->user();
+        $user = auth()->user();
 
+        $user->address()->forceCreate([
+            'street' => $request->street,
+            'postcode' => $request->postcode,
+            'municipality' => $request->municipality,
+            'neighborhood' => $request->neighborhood,
+            'clave' => $user->getKey(),
+        ]);
 
-		UserInfo::forceCreate([
-			'name' => $request->name,
-			'last_name' => $request->last_name,
-			'middle_name' => $request->middle_name,
-			'street' => $request->street,
-			'neighborhood' => $request->neighborhood,
-			'postal_code' => $request->postal_code,
-			'municipality' => $request->municipality,
-			'id' => $request->id,
-			'cellphone' => $request->cellphone,
-			'user_id' => $user->getKey(),
-		]);
+        $user->info()->update([
+            'first_name' => $request->first_name,
+            'first_surname' => $request->first_surname,
+            'second_surname' => $request->second_surname,
+            'id' => $request->id,
+            'phone' => $request->phone,
+        ]);
 
 		return redirect(route('profile'));
 	}

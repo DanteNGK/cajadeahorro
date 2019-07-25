@@ -52,6 +52,16 @@ class User extends Authenticatable
      */
     public function address() : HasOne
     {
-        return $this->hasOne(UserInfo::class);
+        return $this->hasOne(Address::class, $foreignKey = 'clave');
+    }
+
+    /**
+     * Define a one-to-one relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function info() : HasOne
+    {
+        return $this->hasOne(UserInfo::class, $foreignKey = 'clave');
     }
 }
