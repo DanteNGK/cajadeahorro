@@ -30,3 +30,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$(".loading-btn").click(function(e){
+    e.preventDefault();
+
+    $(".loading-btn").attr("disabled", true);
+
+    $(".spn-hidden").attr("hidden", false);
+
+    $("#update-user-info").submit();
+});

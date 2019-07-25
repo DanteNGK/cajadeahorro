@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -15,6 +16,10 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request) {
-        dd($request->all());
+        $request->user()->info()->update($request->info);
+
+        $request->user()->address()->update($request->address);
+
+        return redirect()->route('profile')->with(['user' => $request->user()]);
     }
 }
