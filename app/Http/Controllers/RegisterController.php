@@ -16,17 +16,15 @@ class RegisterController extends Controller
 
 	public function store(Request $request)
 	{
-        $user = auth()->user();
-
-        $user->address()->forceCreate([
+        $request->user()->address()->forceCreate([
             'street' => $request->street,
             'postcode' => $request->postcode,
             'municipality' => $request->municipality,
             'neighborhood' => $request->neighborhood,
-            'clave' => $user->getKey(),
+            'clave' => $request->user()->getKey(),
         ]);
 
-        $user->info()->update([
+        $request->user()->info()->update([
             'first_name' => $request->first_name,
             'first_surname' => $request->first_surname,
             'second_surname' => $request->second_surname,
