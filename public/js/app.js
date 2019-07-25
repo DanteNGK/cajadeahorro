@@ -49359,6 +49359,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(".loading-btn").click(function (e) {
+  e.preventDefault();
+  $(".loading-btn").attr("disabled", true);
+  $(".spn-hidden").attr("hidden", false);
+  $("#update-user-info").submit();
+});
 
 /***/ }),
 

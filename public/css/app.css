@@ -10653,23 +10653,6 @@ a.text-dark:focus {
   font-size: 1.2rem !important;
 }
 
-.card-profile-info {
-  font-size: 1.5rem;
-  background-color: #FFFFFF;
-  border: 2px solid #B8D2F4;
-  border-radius: 12px;
-  padding: 1rem;
-}
-
-.card-profile-info li {
-  margin: 1.5rem;
-}
-
-.card-profile-info .label {
-  font-size: 1.5rem;
-  color: #b5b5b5;
-}
-
 .content img {
   width: 120px;
   height: auto;

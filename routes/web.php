@@ -23,7 +23,7 @@ $router->post('register','Auth\RegisterController@register')->name('register');
 
 $router->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
-$router->get('home', 'HomeController@index');
+$router->get('home', 'HomeController@index')->name('home');
 
 $router->post('logout', 'Auth\LoginController@logout')->name('logout');
 
