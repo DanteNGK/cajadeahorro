@@ -19,7 +19,6 @@ class CreateAddressesTable extends Migration
             $table->string('postcode');
             $table->string('municipality');
             $table->string('neighborhood');
-            $table->integer('user_clave');
             $table->timestamps();
             $table->softDeletes();
 
