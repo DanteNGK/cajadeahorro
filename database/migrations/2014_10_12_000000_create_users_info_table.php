@@ -15,24 +15,13 @@ class CreateUsersInfoTable extends Migration
     {
         Schema::create('users_info', function (Blueprint $table) {
             $table->increments('clave');
-            $table->string('name');
-            $table->string('last_name');
-            $table->string('middle_name');
-            $table->string('street');
-            $table->string('neighborhood');
-            $table->string('postal_code');
-            $table->string('municipality');
-            $table->string('id');
+            $table->string('first_name')->nullable();
+            $table->string('first_surname')->nullable();
+            $table->string('second_surname')->nullable();
+            $table->string('id')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('cellphone'); 
-            $table->integer('user_id')->unsigned();
-
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
-            //
         });
     }
 

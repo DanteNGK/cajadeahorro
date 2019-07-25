@@ -23,7 +23,7 @@
                 <form class="w-25" method="post" action="{{ route('user.register') }}">
                   @csrf
                   <div class="form-group">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nombre:" autofocus>
+                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="Nombre:" autofocus>
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="last_name" placeholder="Apellido:">
+                    <input type="text" class="form-control @error('first_surname') is-invalid @enderror" name="first_surname" placeholder="Apellido:">
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="middle_name" placeholder="Apellido Materno:">
+                    <input type="text" class="form-control @error('second_surname') is-invalid @enderror" name="second_surname" placeholder="Apellido Materno:">
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                     @enderror
                   </div>
                   <div class="form-group"> 
-                    <input type="text" class="form-control @error('middle_name') is-invalid @enderror" name="street" placeholder="Calle:">
+                    <input type="text" class="form-control @error('street') is-invalid @enderror" name="street" placeholder="Calle:">
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -63,7 +63,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" placeholder="C.P:">
+                    <input type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" placeholder="C.P:">
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                     @enderror
                   </div>                  
                   <div class="form-group">
-                    <input type="text" class="form-control @error('cellphone') is-invalid @enderror" name="cellphone" placeholder="Telefono:">
+                    <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Telefono:">
                     @error('name')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

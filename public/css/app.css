@@ -10649,21 +10649,13 @@ a.text-dark:focus {
   color: #FFFFFF;
 }
 
-.profile-info {
-  font-size: 1.5rem;
-  background-color: #FFFFFF;
-  border: 2px solid #B8D2F4;
-  border-radius: 12px;
-  padding: 1rem;
+.form-profile-info legend {
+  font-size: 1.2rem !important;
 }
 
-.profile-info li {
-  margin: 1.5rem;
-}
-
-.profile-info .label {
-  font-size: 1.5rem;
-  color: #E4E4E4;
+.content img {
+  width: 120px;
+  height: auto;
 }
 
 * {
@@ -10683,6 +10675,19 @@ input {
 .btn-blue {
   background-color: #394C65;
   color: #FFFFFF !important;
+}
+
+.btn-blue:hover {
+  background-color: #273344;
+}
+
+.btn-red {
+  background-color: #ff2f6d;
+  color: #FFFFFF !important;
+}
+
+.btn-red:hover {
+  background-color: #fb004b;
 }
 
 .full-height {
@@ -10710,17 +10715,7 @@ input {
 }
 
 .title {
-  font-size: 84px;
-}
-
-.links > a {
-  color: #636b6f;
-  padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-  text-transform: uppercase;
+  font-size: 70px;
 }
 
 .m-b-md {

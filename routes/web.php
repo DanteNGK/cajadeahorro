@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Http\Request;
-
 $router->get('user/register', 'RegisterController@index');
 
 $router->post('user/register', 'RegisterController@store')->name('user.register');
@@ -25,7 +23,7 @@ $router->post('register','Auth\RegisterController@register')->name('register');
 
 $router->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
-$router->get('home', 'HomeController@index');
+$router->get('home', 'HomeController@index')->name('home');
 
 $router->post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -33,4 +31,4 @@ $router->get('/', 'WelcomeController@index');
 
 $router->get('profile', 'ProfileController@index')->name('profile');
 
-$router->get('user/update', 'ProfileController@index')->name('user.update');
+$router->put('user/update', 'ProfileController@update')->name('user.update');

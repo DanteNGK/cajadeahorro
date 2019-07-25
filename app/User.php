@@ -2,13 +2,21 @@
 
 namespace App;
 
+use App\Models\UserInfo;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'clave';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +44,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Define a one-to-one relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function address() : HasOne
+    {
+        return $this->hasOne(Address::class, $foreignKey = 'clave');
+    }
+
+    /**
+     * Define a one-to-one relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function info() : HasOne
+    {
+        return $this->hasOne(UserInfo::class, $foreignKey = 'clave');
+    }
 }

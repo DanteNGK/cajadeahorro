@@ -8,6 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'register';
 @import 'profile';
+@import '_welcome';
 
 *{
     margin: 0;
@@ -25,6 +26,19 @@ input {
 .btn-blue {
 	background-color: #394C65; 
 	color: #FFFFFF !important;
+
+    &:hover {
+        background-color: #273344;
+    }
+}
+
+.btn-red {
+    background-color: #ff2f6d;
+    color: #FFFFFF !important;
+
+    &:hover {
+        background-color: #fb004b;
+    }
 }
 
 .full-height {
@@ -52,17 +66,7 @@ input {
 }
 
 .title {
-	font-size: 84px;
-}
-
-.links>a {
-	color: #636b6f;
-	padding: 0 25px;
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: .1rem;
-	text-decoration: none;
-	text-transform: uppercase;
+	font-size: 70px;
 }
 
 .m-b-md {
