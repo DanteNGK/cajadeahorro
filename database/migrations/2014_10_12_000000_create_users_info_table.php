@@ -15,11 +15,11 @@ class CreateUsersInfoTable extends Migration
     {
         Schema::create('users_info', function (Blueprint $table) {
             $table->increments('clave');
-            $table->string('first_name');
-            $table->string('first_surname');
-            $table->string('second_surname');
-            $table->string('id');
-            $table->string('phone');
+            $table->string('first_name')->nullable();
+            $table->string('first_surname')->nullable();
+            $table->string('second_surname')->nullable();
+            $table->string('id')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
