@@ -10649,7 +10649,11 @@ a.text-dark:focus {
   color: #FFFFFF;
 }
 
-.profile-info {
+.form-profile-info legend {
+  font-size: 1.2rem !important;
+}
+
+.card-profile-info {
   font-size: 1.5rem;
   background-color: #FFFFFF;
   border: 2px solid #B8D2F4;
@@ -10657,11 +10661,11 @@ a.text-dark:focus {
   padding: 1rem;
 }
 
-.profile-info li {
+.card-profile-info li {
   margin: 1.5rem;
 }
 
-.profile-info .label {
+.card-profile-info .label {
   font-size: 1.5rem;
   color: #E4E4E4;
 }

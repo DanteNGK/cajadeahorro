@@ -16,14 +16,20 @@ class CreateCreditsTable extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('interest_rate');
-            $table->integer('user_id');
+            $table->integer('user_clave');
+            $table->integer('group_id');
             $table->integer('start_date');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')
-                  ->references('id')
+            $table->foreign('user_clave')
+                  ->references('clave')
                   ->on('users')
+                  ->onDelete('cascade');
+
+            $table->foreign('group_id')
+                  ->references('id')
+                  ->on('groups')
                   ->onDelete('cascade');
         });
     }

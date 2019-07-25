@@ -20,14 +20,8 @@ class CreateUsersInfoTable extends Migration
             $table->string('second_surname');
             $table->string('id');
             $table->string('phone');
-            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
         });
     }
 
