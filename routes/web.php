@@ -32,3 +32,7 @@ $router->get('/', 'WelcomeController@index');
 $router->get('profile', 'ProfileController@index')->name('profile');
 
 $router->put('user/update', 'ProfileController@update')->name('user.update');
+
+$router->post('group/search', 'GroupController@search')->name('group.search');
+
+$router->post('credit/group/{group}', 'CreditController@store')->name('credit.store');
