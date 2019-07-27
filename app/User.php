@@ -5,6 +5,7 @@ namespace App;
 use App\Models\UserInfo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -63,5 +64,15 @@ class User extends Authenticatable
     public function info() : HasOne
     {
         return $this->hasOne(UserInfo::class, $foreignKey = 'clave');
+    }
+
+    /**
+     * Define a one-to-many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function credits() : HasMany
+    {
+        return $this->hasMany(Credit::class, 'id', 'user_clave');
     }
 }

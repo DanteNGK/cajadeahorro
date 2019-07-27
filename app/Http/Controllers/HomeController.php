@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Group;
+use App\Models\PaymentFrequency;
 
 class HomeController extends Controller
 {
@@ -19,10 +20,15 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param  \Illuminate\Http\Request
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('home');
+        $paymentFrequencies = PaymentFrequency::all();
+
+        $groups = Group::all();
+
+        return view('search-groups', compact('paymentFrequencies', 'groups'));
     }
 }

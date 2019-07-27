@@ -18,7 +18,7 @@ class CreateCreditsTable extends Migration
             $table->decimal('interest_rate');
             $table->integer('user_clave');
             $table->integer('group_id');
-            $table->integer('start_date');
+            $table->integer('start_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
